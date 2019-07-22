@@ -26,23 +26,30 @@ module.exports = function(app) {
         console.log(newScores);
 
         var bestFriend = {name: "", scores: []};
+        var compat = 99;
 
         for (var i = 0 ; i < friendsData.length - 1 ; i++) {
-            var compat = 0;
             var compScore = [];
+            var nextCompat = 0;
 
-            bestFriend = friendsData[i];
-            console.log(bestFriend);
+            console.log(friendsData[i]);
             
             for (var j = 0; j < friendsData[i].scores.length ; j++) {
                 compScore.push(parseInt(friendsData[i].scores[j]));
             };
             console.log(compScore);
-
-            for (var j = 0; j < newScores.length; j++) {
-                compat += Math.abs(newScores[j] - compScore[j]);
+            
+            for (var k = 0; k < newScores.length; k++) {
+                nextCompat += Math.abs(newScores[k] - compScore[k]);
             };
-            console.log(compat);
+            console.log(nextCompat);
+            
+            if (compat > nextCompat) {
+                compat = nextCompat;
+                bestFriend = friendsData[i];
+            }
+            
+            console.log("Best: " + bestFriend.name);
 
             
         }
