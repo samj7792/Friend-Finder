@@ -241,6 +241,8 @@ $(".submit").on("click", function(event) {
 
     $.post("/api/friends", newFriend, function(data) {
 
+        // console.log(data);
+
         $("#match-name").text(data.name);
 
         $("#results-modal").modal("toggle");
