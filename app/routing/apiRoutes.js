@@ -28,10 +28,13 @@ module.exports = function(app) {
         console.log(newFriend);
         console.log("------Current Users------");
         
-        var bestFriend = {name: "", scores: []};
+        var bestFriend = {name: "", photo: "", scores: []};
         var compat = 99;
 
         bestMatch();
+
+        console.log("Best Friend:");
+        console.log(bestFriend);
 
         res.json(bestFriend);
 
@@ -41,7 +44,7 @@ module.exports = function(app) {
                 var compScore = [];
                 var nextCompat = 0;
 
-                console.log(friendsData[i]);
+                // console.log(friendsData[i]);
                 
                 // convert friendsData[i].score into integers
                 for (var j = 0; j < friendsData[i].scores.length ; j++) {
@@ -61,7 +64,7 @@ module.exports = function(app) {
                     bestFriend = friendsData[i];
                 }
                 
-                console.log("Best: " + bestFriend.name);
+                // console.log("Best: " + bestFriend.name);
             }
             // console.log(bestFriend);
         }
